@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Made Submission 3</string>
+    <string name="tab_text_1">Movie</string>
+    <string name="tab_text_2">TV Show</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="txt_title">title</string>
+    <string name="txt_description">description</string>
+    <string name="txt_release">release</string>
+
+    <string name="api_tv">http://api.themoviedb.org/3/discover/tv?api_key=9b7895f9490eab4f205bcfdbbad32058&amp;language=en-US</string>
+    <string name="api_movie">http://api.themoviedb.org/3/discover/movie?api_key=9b7895f9490eab4f205bcfdbbad32058&amp;language=en-US</string>
+    <string name="change_language_settings">Change language Settings</string>
+</resources>

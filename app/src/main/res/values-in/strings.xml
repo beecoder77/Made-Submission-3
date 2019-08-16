@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Made Submission 3</string>
+    <string name="tab_text_1">Film</string>
+    <string name="tab_text_2">Acara TV</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="txt_title">Judul</string>
+    <string name="txt_description">Deskripsi</string>
+    <string name="txt_release">Tanggal Rilis</string>
+
+    <string name="api_tv">http://api.themoviedb.org/3/discover/tv?api_key=9b7895f9490eab4f205bcfdbbad32058&amp;language=en-US</string>
+    <string name="api_movie">http://api.themoviedb.org/3/discover/movie?api_key=9b7895f9490eab4f205bcfdbbad32058&amp;language=en-US</string>
+    <string name="change_language_settings">Ganti Pengaturan Bahasa</string>
+</resources>
