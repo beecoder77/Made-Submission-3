@@ -42,9 +42,9 @@ public class TvViewModel extends AndroidViewModel {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject result = jsonArray.getJSONObject(i);
                         String title = result.getString("name");
-                        String description = result.getString("overview");
                         String photo = result.getString("poster_path");
-                        Item mItem = new Item(photo,description,title);
+                        String description = result.getString("overview");
+                        Item mItem = new Item(title,photo,description);
 
                         itemArrayList.add(mItem);
                     }

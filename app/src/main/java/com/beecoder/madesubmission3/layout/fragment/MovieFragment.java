@@ -56,14 +56,12 @@ public class MovieFragment extends Fragment {
         photo = view.findViewById(R.id.img_movie);
 
         prepare();
-        addItem();
         showRecyclerView();
 
         recyclerViewMovie.addOnItemTouchListener(new ItemClickSupport(getContext(), recyclerViewMovie, new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Item item = new Item(movieViewModel.itemArrayList.get(position).getPhoto(), movieViewModel.itemArrayList.get(position).getTitle(), movieViewModel.itemArrayList.get(position).getDescription());
-
+                Item item = new Item(movieViewModel.itemArrayList.get(position).getTitle(), movieViewModel.itemArrayList.get(position).getPhoto(), movieViewModel.itemArrayList.get(position).getDescription());
                 Intent detailMovie = new Intent(getContext(), MovieActivity.class);
                 detailMovie.putExtra(MovieActivity.EXTRA_MOVIE, item);
                 startActivity(detailMovie);
@@ -82,17 +80,6 @@ public class MovieFragment extends Fragment {
         return  view;
     }
 
-    private void addItem() {
-        itemArrayList = new ArrayList<>();
-        int length = movieViewModel.itemArrayList.size();
-        for(int i = 0; i<length; i++){
-            Item item = new Item();
-            item.setTitle(itemArrayList.get(i).getTitle());
-            Picasso.get().load("https://image.tmdb.org/p/w500" + itemArrayList.get(i).getPhoto()).into(photo);
-            itemArrayList.add(item);
-        }
-    }
-
     private void prepare() {
         movieViewModel = ViewModelProviders.of(getActivity()).get(MovieViewModel.class);
         movieViewModel.movie().observe(MovieFragment.this, getMovie);
@@ -102,7 +89,7 @@ public class MovieFragment extends Fragment {
     private void showRecyclerView() {
         movieAdapter = new MovieAdapter(getContext());
         movieAdapter.notifyDataSetChanged();
-        recyclerViewMovie.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerViewMovie.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerViewMovie.setAdapter(movieAdapter);
     }
 

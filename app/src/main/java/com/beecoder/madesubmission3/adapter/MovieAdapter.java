@@ -29,7 +29,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     }
 
     public void setItemArrayList(ArrayList<Item> itemArrayList) {
-        itemArrayList.clear();
         this.itemArrayList = itemArrayList;
         notifyDataSetChanged();
     }
@@ -45,7 +44,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public void onBindViewHolder(@NonNull MovieViewHolder movieViewHolder, int i) {
         Item item = itemArrayList.get(i);
         movieViewHolder.title.setText(item.getTitle());
-        Picasso.get().load("https://image.tmdb.org/p/w500" + item.getPhoto()).into(movieViewHolder.photo);
+        Picasso.get()
+                .load("https://image.tmdb.org/t/p/w185" + item.getPhoto())
+                .resize(100,100)
+                .into(movieViewHolder.photo);
     }
 
     @Override

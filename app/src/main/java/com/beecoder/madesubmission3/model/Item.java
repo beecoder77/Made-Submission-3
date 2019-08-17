@@ -8,10 +8,10 @@ public class Item implements Parcelable {
     String title;
     String description;
 
-    public Item(String photo, String title, String description){
+    public Item(String title, String photo, String description){
+        this.title = title;
         this.photo = photo;
         this.description = description;
-        this.title = title;
     }
 
     public String getPhoto() {

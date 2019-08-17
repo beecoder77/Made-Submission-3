@@ -13,7 +13,7 @@ public class MovieActivity extends AppCompatActivity {
 
     public static final String EXTRA_MOVIE = "extra_movie";
 
-    TextView title, release, description;
+    TextView title, description;
     ImageView photo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,11 @@ public class MovieActivity extends AppCompatActivity {
         description = findViewById(R.id.tv_description);
 
         Item item = getIntent().getParcelableExtra(EXTRA_MOVIE);
-        Picasso.get().load("https://image.tmdb.org/p/w500" + item.getPhoto()).into(photo);
         title.setText(item.getTitle());
+        Picasso.get()
+                .load("https://image.tmdb.org/t/p/w185" + item.getPhoto())
+                .resize(200,200)
+                .into(photo);
         description.setText(item.getDescription());
     }
 }

@@ -29,18 +29,8 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.TvViewHolder> {
     }
 
     public void setItemArrayList(ArrayList<Item> itemArrayList) {
-        itemArrayList.clear();
         this.itemArrayList = itemArrayList;
         notifyDataSetChanged();
-    }
-
-    public void AddItems(final Item item){
-        itemArrayList.add(item);
-        notifyDataSetChanged();
-    }
-
-    public void clear(){
-        itemArrayList.clear();
     }
 
     @NonNull
@@ -54,7 +44,10 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.TvViewHolder> {
     public void onBindViewHolder(@NonNull TvViewHolder tvViewHolder, int i) {
         Item item = itemArrayList.get(i);
         tvViewHolder.title.setText(item.getTitle());
-        Picasso.get().load("https://image.tmdb.org/p/w500" + item.getPhoto()).into(tvViewHolder.photo);
+        Picasso.get()
+                .load("https://image.tmdb.org/t/p/w185" + item.getPhoto())
+                .resize(100,100)
+                .into(tvViewHolder.photo);
     }
 
     @Override

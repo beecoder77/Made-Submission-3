@@ -3,29 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/img_movie"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="27dp"
         android:src="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toStartOf="@+id/txt_title_movie"
+        android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
         android:id="@+id/txt_title_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="244dp"
         android:text="@string/txt_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_movie"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="15sp"
+        android:paddingStart="0dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintStart_toEndOf="@id/img_movie"
+        app:layout_constraintTop_toTopOf="@id/img_movie"
+        app:layout_constraintBottom_toBottomOf="@id/img_movie"
+        />
 
 </android.support.constraint.ConstraintLayout>

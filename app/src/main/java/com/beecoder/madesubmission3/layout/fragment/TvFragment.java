@@ -59,12 +59,12 @@ public class TvFragment extends Fragment {
         photo = view.findViewById(R.id.img_tv);
 
         prepare();
-        addItem();
+//        addItem();
         showRecyclerView();
         recyclerViewTV.addOnItemTouchListener(new ItemClickSupport(getContext(), recyclerViewTV, new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Item item = new Item(tvViewModel.itemArrayList.get(position).getPhoto(), tvViewModel.itemArrayList.get(position).getTitle(), tvViewModel.itemArrayList.get(position).getDescription());
+                Item item = new Item(tvViewModel.itemArrayList.get(position).getTitle(), tvViewModel.itemArrayList.get(position).getPhoto(), tvViewModel.itemArrayList.get(position).getDescription());
 
                 Intent detailTv = new Intent(getContext(), TvActivity.class);
                 detailTv.putExtra(TvActivity.EXTRA_TV, item);
@@ -73,7 +73,7 @@ public class TvFragment extends Fragment {
 
             @Override
             public void onItemLongClick(View view, int position) {
-                Item item = new Item(tvViewModel.itemArrayList.get(position).getPhoto(), tvViewModel.itemArrayList.get(position).getTitle(), tvViewModel.itemArrayList.get(position).getDescription());
+                Item item = new Item(tvViewModel.itemArrayList.get(position).getTitle(), tvViewModel.itemArrayList.get(position).getPhoto(), tvViewModel.itemArrayList.get(position).getDescription());
 
                 Intent detailTv = new Intent(getContext(), TvActivity.class);
                 detailTv.putExtra(TvActivity.EXTRA_TV, item);
@@ -84,16 +84,16 @@ public class TvFragment extends Fragment {
         return  view;
     }
 
-    private void addItem() {
-        itemArrayList = new ArrayList<>();
-        int length = tvViewModel.itemArrayList.size();
-        for(int i = 0; i<length; i++){
-            Item item = new Item();
-            item.setTitle(itemArrayList.get(i).getTitle());
-            Picasso.get().load("https://image.tmdb.org/p/w500" + itemArrayList.get(i).getPhoto()).into(photo);
-            itemArrayList.add(item);
-        }
-    }
+//    private void addItem() {
+//        itemArrayList = new ArrayList<>();
+//        int length = tvViewModel.itemArrayList.size();
+//        for(int i = 0; i<length; i++){
+//            Item item = new Item();
+//            item.setTitle(itemArrayList.get(i).getTitle());
+//            Picasso.get().load("https://image.tmdb.org/t/p/w185" + itemArrayList.get(i).getPhoto()).into(photo);
+//            itemArrayList.add(item);
+//        }
+//    }
 
     private void prepare() {
         tvViewModel = ViewModelProviders.of(getActivity()).get(TvViewModel.class);
